@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Semangat!</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 40px;
+        background: #fffdf0;
+      }
+      h1 { color: #e65c00; }
+      h2 { color: #444; font-weight: normal; }
+      button {
+        padding: 12px 28px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        margin: 6px;
+      }
+      #btn_semangat {
+        background: #e65c00;
+        color: white;
+      }
+      #btn_belum {
+        background: #ccc;
+        color: #333;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hei, kamu pasti bisa! 💪</h1>
+    <iframe
+      src="https://giphy.com/embed/5GoVLqeAOo6PK"
+      width="400"
+      height="300"
+      frameborder="0"
+      class="giphy-embed"
+      allowfullscreen
+    ></iframe>
+    <h2>Setiap langkah kecil itu berarti. Jangan menyerah!</h2>
+    <br />
+    <button id="btn_semangat" onclick="semangatYuk()">Iya, aku semangat!</button>&nbsp;
+    <button id="btn_belum" onclick="kabur(this)">Belum deh...</button>
+  </body>
+  <script>
+    function semangatYuk() {
+      document.body.innerHTML = `
+        <div style="font-family:Arial; text-align:center; padding:60px; background:#fffdf0; min-height:100vh;">
+          <h1 style="color:#e65c00; font-size:48px;">🌟 SEMANGAT! 🌟</h1>
+          <p style="font-size:20px; color:#444;">Kamu sudah memilih untuk bangkit. Itu luar biasa!</p>
+          <p style="font-size:16px; color:#888;">Ingat: bintang paling terang pernah melewati malam paling gelap.</p>
+        </div>`;
+    }
+
+    function kabur(id) {
+      var semangat = document.getElementById("btn_semangat");
+      var i = Math.floor(Math.random() * 300) + 1;
+      var j = Math.floor(Math.random() * 100) + semangat.offsetTop;
+      id.style.left = i + "px";
+      id.style.top = j + "px";
+      var pesan = ["Eh, kabur dulu~", "Nanti deh!", "Hmm... coba lagi!", "Ayo masa ga mau?"];
+      id.textContent = pesan[Math.floor(Math.random() * pesan.length)];
+    }
+  </script>
+</html>
