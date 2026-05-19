@@ -29,18 +29,48 @@
         color: #333;
         position: absolute;
       }
+      #animasi {
+        position: relative;
+        width: 300px;
+        height: 220px;
+        margin: 0 auto 10px;
+        background: linear-gradient(135deg, #fff8e1, #ffe0b2);
+        border-radius: 20px;
+        border: 2px solid #ffcc80;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .karakter { display: flex; align-items: center; gap: 8px; animation: loncat 0.6s ease-in-out infinite alternate; }
+      .muka { font-size: 60px; }
+      .tangan-kiri { font-size: 36px; animation: pukulKiri 0.6s ease-in-out infinite alternate; }
+      .tangan-kanan { font-size: 36px; animation: pukulKanan 0.6s ease-in-out infinite alternate; }
+      .teks-api { position: absolute; bottom: 14px; font-size: 18px; font-weight: bold; color: #e65c00; letter-spacing: 2px; animation: kedip 1s ease-in-out infinite alternate; }
+      .bintang { position: absolute; font-size: 24px; animation: terbang 2s ease-in-out infinite; }
+      #b1 { top: 10px; left: 20px; animation-delay: 0s; }
+      #b2 { top: 10px; right: 20px; animation-delay: 0.4s; }
+      #b3 { top: 50px; left: 50%; animation-delay: 0.8s; }
+      @keyframes loncat { from { transform: translateY(0); } to { transform: translateY(-14px); } }
+      @keyframes pukulKiri { from { transform: rotate(-20deg); } to { transform: rotate(10deg) translateX(-6px); } }
+      @keyframes pukulKanan { from { transform: rotate(20deg); } to { transform: rotate(-10deg) translateX(6px); } }
+      @keyframes kedip { from { opacity: 0.5; transform: scale(1); } to { opacity: 1; transform: scale(1.08); } }
+      @keyframes terbang { 0% { transform: translateY(0) scale(1); opacity:1; } 50% { transform: translateY(-20px) scale(1.3); opacity:0.7; } 100% { transform: translateY(0) scale(1); opacity:1; } }
     </style>
   </head>
   <body>
     <h1>Hei, kamu pasti bisa! 💪</h1>
-    <iframe
-      src="https://giphy.com/embed/5GoVLqeAOo6PK"
-      width="400"
-      height="300"
-      frameborder="0"
-      class="giphy-embed"
-      allowfullscreen
-    ></iframe>
+    <div id="animasi">
+      <div class="bintang" id="b1">⭐</div>
+      <div class="bintang" id="b2">🌟</div>
+      <div class="bintang" id="b3">✨</div>
+      <div class="karakter">
+        <div class="muka">😄</div>
+        <div class="tangan-kiri">🤜</div>
+        <div class="tangan-kanan">🤛</div>
+      </div>
+      <div class="teks-api">SEMANGAT!!!!</div>
+    </div>
     <h2>Setiap langkah kecil itu berarti. Jangan menyerah!</h2>
     <br />
     <button id="btn_semangat" onclick="semangatYuk()">Iya, aku semangat!</button>&nbsp;
